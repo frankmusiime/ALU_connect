@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'theme/app_theme.dart';
 import 'services/app_state.dart';
 import 'widgets/shared_widgets.dart';
-import 'screens/main_shell.dart';
+import 'screens/home_screen.dart';
 import 'screens/event_details.dart';
-import 'screens/chat_screen_detail.dart';
 
 void main() {
   runApp(const ALUConnectApp());
@@ -51,14 +50,6 @@ class _ALUConnectAppState extends State<ALUConnectApp> {
               }
               return const Scaffold();
             },
-            '/chat': (context) {
-              final chatId =
-                  ModalRoute.of(context)?.settings.arguments as String?;
-              if (chatId != null) {
-                return ChatScreenDetail(chatId: chatId, appState: _appState);
-              }
-              return const Scaffold();
-            },
           },
         );
       },
@@ -68,7 +59,7 @@ class _ALUConnectAppState extends State<ALUConnectApp> {
   /// Build the home screen based on authentication state
   Widget _buildHome() {
     return _appState.isLoggedIn
-        ? MainShell(appState: _appState)
+        ? HomeScreen(appState: _appState)
         : OnboardingScreen(appState: _appState);
   }
 }
