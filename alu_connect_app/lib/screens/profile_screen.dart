@@ -394,47 +394,50 @@ class _ProfileScreenState extends State<ProfileScreen>
       children: items.map((item) {
         final (label, icon, color) = item;
         final isSignOut = label == 'Sign Out';
-        return Container(
-          margin: const EdgeInsets.only(bottom: 8),
-          decoration: BoxDecoration(
-            color: AppColors.card,
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: AppColors.border),
-          ),
-          child: ListTile(
-            leading: Container(
-              width: 36,
-              height: 36,
-              decoration: BoxDecoration(
-                color: color.withAlpha((0.15 * 255).round()),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Icon(icon, color: color, size: 18),
-            ),
-            title: Text(
-              label,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-                color: isSignOut ? AppColors.coral : AppColors.textPrimary,
-              ),
-            ),
-            trailing: Icon(
-              Icons.chevron_right,
-              color: AppColors.textMuted,
-              size: 18,
-            ),
-            onTap: () {
-              if (isSignOut) {
-                widget.appState.logout();
-              }
-            },
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 14,
-              vertical: 2,
-            ),
-            shape: RoundedRectangleBorder(
+        return Material(
+          color: AppColors.card,
+          borderRadius: BorderRadius.circular(14),
+          child: Container(
+            margin: const EdgeInsets.only(bottom: 8),
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: AppColors.border),
+            ),
+            child: ListTile(
+              leading: Container(
+                width: 36,
+                height: 36,
+                decoration: BoxDecoration(
+                  color: color.withAlpha((0.15 * 255).round()),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(icon, color: color, size: 18),
+              ),
+              title: Text(
+                label,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: isSignOut ? AppColors.coral : AppColors.textPrimary,
+                ),
+              ),
+              trailing: Icon(
+                Icons.chevron_right,
+                color: AppColors.textMuted,
+                size: 18,
+              ),
+              onTap: () {
+                if (isSignOut) {
+                  widget.appState.logout();
+                }
+              },
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 14,
+                vertical: 2,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
+              ),
             ),
           ),
         );
