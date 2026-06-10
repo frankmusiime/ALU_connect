@@ -252,9 +252,10 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                     color: AppColors.amber,
                     title: 'Organizer',
                     value: event.organizer,
-                    trailing: Text(
-                      event.organizerAvatar,
-                      style: const TextStyle(fontSize: 20),
+                    trailing: Icon(
+                      getEventIcon(event),
+                      size: 20,
+                      color: event.typeColor,
                     ),
                   ),
 

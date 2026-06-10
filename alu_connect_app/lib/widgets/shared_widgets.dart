@@ -4,6 +4,34 @@ import 'package:cached_network_image/cached_network_image.dart';
 import '../models/models.dart';
 import '../theme/app_theme.dart';
 
+// Helper: map event type or organizer to an icon
+IconData getEventIcon(EventModel e) {
+  switch (e.type) {
+    case EventType.event:
+      return Icons.calendar_today;
+    case EventType.opportunity:
+      return Icons.work;
+    case EventType.workshop:
+      return Icons.build;
+    case EventType.competition:
+      return Icons.emoji_events;
+    case EventType.announcement:
+      return Icons.campaign;
+  }
+}
+
+// Helper: map community name to an icon
+IconData getCommunityIcon(CommunityModel c) {
+  final name = c.name.toLowerCase();
+  if (name.contains('debate')) return Icons.mic;
+  if (name.contains('entrepreneur') || name.contains('startup')) return Icons.rocket_launch;
+  if (name.contains('design') || name.contains('product')) return Icons.palette;
+  if (name.contains('climate') || name.contains('sustain')) return Icons.eco;
+  if (name.contains('finance') || name.contains('investment')) return Icons.account_balance;
+  if (name.contains('tech') || name.contains('innovation')) return Icons.computer;
+  return Icons.group;
+}
+
 // ─── Avatar Widget ────────────────────────────────────────────────────────────
 class AvatarWidget extends StatelessWidget {
   final String emoji;
@@ -405,9 +433,27 @@ class CompactEventRow extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Text(
-                  event.organizerAvatar,
-                  style: const TextStyle(fontSize: 22),
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: event.typeColor,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.lerp(event.typeColor, Colors.black, 0.12)!,
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Center(
+                    child: Icon(
+                      getEventIcon(event),
+                      color: Colors.white,
+                      size: 22,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -524,21 +570,27 @@ class _CommunityCardState extends State<CommunityCard> {
             width: 52,
             height: 52,
             decoration: BoxDecoration(
-              color: widget.community.accentColor.withAlpha(
-                (0.15 * 255).round(),
-              ),
-              borderRadius: BorderRadius.circular(14),
+              color: widget.community.accentColor,
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Color.lerp(widget.community.accentColor, Colors.black, 0.12)!,
+                  blurRadius: 8,
+                  offset: const Offset(0, 4),
+                ),
+              ],
               border: Border.all(
                 color: widget.community.accentColor.withAlpha(
-                  (0.3 * 255).round(),
+                  (0.28 * 255).round(),
                 ),
               ),
             ),
             child: Center(
-              child: Text(
-                widget.community.iconEmoji,
-                style: const TextStyle(fontSize: 24),
-              ),
+              child: Icon(
+                  getCommunityIcon(widget.community),
+                  color: Colors.white,
+                  size: 24,
+                ),
             ),
           ),
           const SizedBox(width: 14),

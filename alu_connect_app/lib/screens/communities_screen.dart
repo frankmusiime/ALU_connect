@@ -231,7 +231,7 @@ class _CommunityDetailSheetState extends State<_CommunityDetailSheet> {
               ),
             ),
             child: Center(
-              child: Text(c.iconEmoji, style: const TextStyle(fontSize: 32)),
+              child: Icon(getCommunityIcon(c), color: Colors.white, size: 32),
             ),
           ),
           const SizedBox(height: 16),

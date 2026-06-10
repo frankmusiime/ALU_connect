@@ -9,8 +9,9 @@ import 'event_details.dart';
 
 class ExploreScreen extends StatefulWidget {
   final AppState appState;
+  final String? initialFilter;
 
-  const ExploreScreen({super.key, required this.appState});
+  const ExploreScreen({super.key, required this.appState, this.initialFilter});
 
   @override
   State<ExploreScreen> createState() => _ExploreScreenState();
@@ -19,6 +20,14 @@ class ExploreScreen extends StatefulWidget {
 class _ExploreScreenState extends State<ExploreScreen> {
   String _selectedFilter = 'All';
   String _searchQuery = '';
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.initialFilter != null && widget.initialFilter!.isNotEmpty) {
+      _selectedFilter = widget.initialFilter!;
+    }
+  }
 
   List<EventModel> get _filteredEvents {
     return widget.appState.events.where((e) {
@@ -216,9 +225,10 @@ class _ExploreEventCard extends StatelessWidget {
               ),
               child: event.imageUrl.isEmpty
                   ? Center(
-                      child: Text(
-                        event.organizerAvatar,
-                        style: const TextStyle(fontSize: 28),
+                      child: Icon(
+                        getEventIcon(event),
+                        color: Colors.white,
+                        size: 28,
                       ),
                     )
                   : null,

@@ -1,9 +1,8 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
-import 'package:responsive_framework/responsive_framework.dart';
+import '../widgets/shared_widgets.dart';
 //import '../models/models.dart';
-//import '../widgets/shared_widgets.dart';
 
 class CreatePostScreen extends StatefulWidget {
   const CreatePostScreen({super.key});

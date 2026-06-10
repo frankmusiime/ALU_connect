@@ -6,6 +6,7 @@ class MockData {
   static final currentUser = UserModel(
     id: 'u1',
     name: 'Aline Umuhoza',
+    email: 'aline@example.com',
     campus: 'Kigali Campus',
     major: 'Entrepreneurial Leadership',
     cohort: 'Class of 2027',
@@ -191,6 +192,33 @@ class MockData {
       accentColor: const Color(0xFF4CAF50),
       memberCount: 67,
       tags: ['Climate', 'Sustainability'],
+    ),
+    CommunityModel(
+      id: 'c7',
+      name: 'Design & Product Club',
+      description: 'Designers and product thinkers building beautiful products.',
+      iconEmoji: '🎨',
+      accentColor: const Color(0xFFFF6B82),
+      memberCount: 89,
+      tags: ['Design', 'Product'],
+    ),
+    CommunityModel(
+      id: 'c8',
+      name: 'Climate Innovators',
+      description: 'Students working on climate-tech and sustainability projects.',
+      iconEmoji: '🌿',
+      accentColor: const Color(0xFF44D7C9),
+      memberCount: 54,
+      tags: ['Climate', 'Innovation'],
+    ),
+    CommunityModel(
+      id: 'c9',
+      name: 'Finance & Investment Club',
+      description: 'Learning and practicing investing, VC, and financial analysis.',
+      iconEmoji: '💼',
+      accentColor: const Color(0xFFFFC85C),
+      memberCount: 132,
+      tags: ['Finance', 'Investing'],
     ),
   ];
 

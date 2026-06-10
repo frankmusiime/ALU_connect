@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// Responsive breakpoint names
+const String mobile = 'MOBILE';
+const String tablet = 'TABLET';
+const String desktop = 'DESKTOP';
+
 class AppColors {
   // Primary palette
   static const Color background = Color(0xFF090B19);

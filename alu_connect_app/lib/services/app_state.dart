@@ -50,13 +50,20 @@ class AppState with ChangeNotifier {
   }
 
   /// Login the user
-  Future<void> login(String email, String password) async {
+  Future<void> login({
+    required String username,
+    required String email,
+    required String password,
+  }) async {
     // Simulate network delay
     await Future.delayed(const Duration(milliseconds: 800));
 
     // For demo, accept any credentials
     _isLoggedIn = true;
-    _currentUser = MockData.currentUser;
+    _currentUser = MockData.currentUser.copyWith(
+      name: username,
+      email: email,
+    );
     notifyListeners();
   }
 

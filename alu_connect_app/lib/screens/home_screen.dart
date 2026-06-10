@@ -5,6 +5,8 @@ import '../widgets/shared_widgets.dart';
 import '../services/app_state.dart';
 import '../models/models.dart';
 import 'event_details.dart';
+import 'explore_screen.dart';
+import 'communities_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final AppState appState;
@@ -132,24 +134,60 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: BootstrapIcons.calendar,
                       label: 'Events',
                       color: AppColors.blue,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => ExploreScreen(
+                            appState: widget.appState,
+                            initialFilter: 'Events',
+                          ),
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 8),
                     _QuickFilter(
                       icon: BootstrapIcons.briefcase,
                       label: 'Opportunities',
                       color: AppColors.teal,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => ExploreScreen(
+                            appState: widget.appState,
+                            initialFilter: 'Opportunities',
+                          ),
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 8),
                     _QuickFilter(
                       icon: BootstrapIcons.people,
                       label: 'Clubs',
                       color: AppColors.purple,
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => CommunitiesScreen(appState: widget.appState),
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 8),
                     _QuickFilter(
                       icon: BootstrapIcons.book,
                       label: 'Academics',
                       color: AppColors.coral,
+                      onTap: () {
+                        // For now, open Explore with Academics filter
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => ExploreScreen(
+                              appState: widget.appState,
+                              initialFilter: 'Workshops',
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -398,37 +436,43 @@ class _QuickFilter extends StatelessWidget {
   final IconData icon;
   final String label;
   final Color color;
+  final VoidCallback? onTap;
 
   const _QuickFilter({
     required this.icon,
     required this.label,
     required this.color,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
-        decoration: BoxDecoration(
-          color: color.withAlpha((0.12 * 255).round()),
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: color.withAlpha((0.25 * 255).round())),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, color: color, size: 16),
-            const SizedBox(width: 8),
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w700,
-                color: color,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+          decoration: BoxDecoration(
+            color: color.withAlpha((0.12 * 255).round()),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: color.withAlpha((0.25 * 255).round())),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, color: color, size: 16),
+              const SizedBox(width: 8),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                  color: color,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

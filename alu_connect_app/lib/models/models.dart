@@ -8,6 +8,7 @@ enum UserRole { student, clubLeader, coach, entrepreneur, academicLeader, admin 
 class UserModel {
   final String id;
   final String name;
+  final String email;
   final String campus;
   final String major;
   final String cohort;
@@ -22,6 +23,7 @@ class UserModel {
   const UserModel({
     required this.id,
     required this.name,
+    required this.email,
     required this.campus,
     required this.major,
     required this.cohort,
@@ -33,6 +35,38 @@ class UserModel {
     required this.connections,
     required this.badges,
   });
+
+  UserModel copyWith({
+    String? id,
+    String? name,
+    String? email,
+    String? campus,
+    String? major,
+    String? cohort,
+    String? avatarUrl,
+    UserRole? role,
+    List<String>? interests,
+    int? eventsAttended,
+    int? communitiesJoined,
+    int? connections,
+    List<String>? badges,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      campus: campus ?? this.campus,
+      major: major ?? this.major,
+      cohort: cohort ?? this.cohort,
+      avatarUrl: avatarUrl ?? this.avatarUrl,
+      role: role ?? this.role,
+      interests: interests ?? this.interests,
+      eventsAttended: eventsAttended ?? this.eventsAttended,
+      communitiesJoined: communitiesJoined ?? this.communitiesJoined,
+      connections: connections ?? this.connections,
+      badges: badges ?? this.badges,
+    );
+  }
 }
 
 class EventModel {
