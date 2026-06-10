@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'theme/app_theme.dart';
 import 'services/app_state.dart';
 import 'widgets/shared_widgets.dart';
-import 'screens/home_screen.dart';
+import 'screens/main_shell.dart';
 import 'screens/event_details.dart';
 
 void main() {
@@ -59,7 +59,7 @@ class _ALUConnectAppState extends State<ALUConnectApp> {
   /// Build the home screen based on authentication state
   Widget _buildHome() {
     return _appState.isLoggedIn
-        ? HomeScreen(appState: _appState)
+        ? MainShell(appState: _appState)
         : OnboardingScreen(appState: _appState);
   }
 }
@@ -85,6 +85,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   void dispose() {
+    _usernameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
