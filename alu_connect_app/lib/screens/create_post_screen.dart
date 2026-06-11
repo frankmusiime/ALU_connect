@@ -71,7 +71,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                         color: AppColors.amber,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: const Text(
+                      child: Text(
                         'Publish',
                         style: TextStyle(
                           fontSize: 14,
@@ -165,7 +165,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const Text(
+                    Text(
                       'Add cover image',
                       style: TextStyle(
                         fontSize: 14,
@@ -174,7 +174,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                       ),
                     ),
                     const SizedBox(height: 2),
-                    const Text(
+                    Text(
                       'PNG, JPG up to 5MB',
                       style: TextStyle(
                         fontSize: 12,
@@ -192,7 +192,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
             const SizedBox(height: 8),
             TextField(
               controller: _titleController,
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppColors.textPrimary,
                 fontSize: 15,
               ),
@@ -202,11 +202,11 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                 fillColor: AppColors.surfaceElevated,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: AppColors.border),
+                  borderSide: BorderSide(color: AppColors.border),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: AppColors.border),
+                  borderSide: BorderSide(color: AppColors.border),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -225,7 +225,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
             TextField(
               controller: _descController,
               maxLines: 4,
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppColors.textPrimary,
                 fontSize: 15,
               ),
@@ -235,11 +235,11 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                 fillColor: AppColors.surfaceElevated,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: AppColors.border),
+                  borderSide: BorderSide(color: AppColors.border),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: AppColors.border),
+                  borderSide: BorderSide(color: AppColors.border),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -353,7 +353,7 @@ class _FormLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       label,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 13,
         fontWeight: FontWeight.w600,
         color: AppColors.textSecondary,
@@ -390,13 +390,13 @@ class _DropdownButton extends StatelessWidget {
             const SizedBox(width: 10),
             Text(
               value,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
                 color: AppColors.textPrimary,
               ),
             ),
             const Spacer(),
-            const Icon(
+            Icon(
               Icons.keyboard_arrow_down,
               color: AppColors.textMuted,
               size: 18,
@@ -500,7 +500,7 @@ class _DropdownSelector extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const Icon(
+            Icon(
               Icons.keyboard_arrow_down,
               color: AppColors.textMuted,
               size: 18,

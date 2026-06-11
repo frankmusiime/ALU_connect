@@ -271,7 +271,7 @@ class FeaturedEventCard extends StatelessWidget {
                             color: AppColors.amber,
                             shape: BoxShape.circle,
                           ),
-                          child: const Icon(
+                          child: Icon(
                             Icons.bookmark,
                             size: 14,
                             color: AppColors.background,
@@ -289,7 +289,7 @@ class FeaturedEventCard extends StatelessWidget {
                 children: [
                   Text(
                     event.title,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
                       color: AppColors.textPrimary,
@@ -301,7 +301,7 @@ class FeaturedEventCard extends StatelessWidget {
                   const SizedBox(height: 8),
                   Row(
                     children: [
-                      const Icon(
+                      Icon(
                         BootstrapIcons.calendar,
                         size: 13,
                         color: AppColors.textMuted,
@@ -309,7 +309,7 @@ class FeaturedEventCard extends StatelessWidget {
                       const SizedBox(width: 5),
                       Text(
                         _formatDate(event.date),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 12,
                           color: AppColors.textSecondary,
                         ),
@@ -319,7 +319,7 @@ class FeaturedEventCard extends StatelessWidget {
                   const SizedBox(height: 4),
                   Row(
                     children: [
-                      const Icon(
+                      Icon(
                         BootstrapIcons.geo_alt,
                         size: 13,
                         color: AppColors.textMuted,
@@ -328,7 +328,7 @@ class FeaturedEventCard extends StatelessWidget {
                       Expanded(
                         child: Text(
                           event.location,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 12,
                             color: AppColors.textSecondary,
                           ),
@@ -467,7 +467,7 @@ class CompactEventRow extends StatelessWidget {
                       Expanded(
                         child: Text(
                           event.title,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
                             color: AppColors.textPrimary,
@@ -482,7 +482,7 @@ class CompactEventRow extends StatelessWidget {
                   const SizedBox(height: 4),
                   Row(
                     children: [
-                      const Icon(
+                      Icon(
                         BootstrapIcons.calendar,
                         size: 12,
                         color: AppColors.textMuted,
@@ -490,13 +490,13 @@ class CompactEventRow extends StatelessWidget {
                       const SizedBox(width: 4),
                       Text(
                         _formatDate(event.date),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 12,
                           color: AppColors.textSecondary,
                         ),
                       ),
                       const SizedBox(width: 10),
-                      const Icon(
+                      Icon(
                         BootstrapIcons.geo_alt,
                         size: 12,
                         color: AppColors.textMuted,
@@ -505,7 +505,7 @@ class CompactEventRow extends StatelessWidget {
                       Expanded(
                         child: Text(
                           event.location,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 12,
                             color: AppColors.textSecondary,
                           ),
@@ -600,7 +600,7 @@ class _CommunityCardState extends State<CommunityCard> {
               children: [
                 Text(
                   widget.community.name,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
                     color: AppColors.textPrimary,
@@ -609,7 +609,7 @@ class _CommunityCardState extends State<CommunityCard> {
                 const SizedBox(height: 3),
                 Text(
                   '${widget.community.memberCount} members',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 12,
                     color: AppColors.textSecondary,
                   ),
@@ -915,11 +915,11 @@ class AppSearchBar extends StatelessWidget {
       ),
       child: TextField(
         onChanged: onChanged,
-        style: const TextStyle(color: AppColors.textPrimary, fontSize: 14),
+        style: TextStyle(color: AppColors.textPrimary, fontSize: 14),
         decoration: InputDecoration(
           hintText: hint,
-          hintStyle: const TextStyle(color: AppColors.textMuted, fontSize: 14),
-          prefixIcon: const Icon(
+          hintStyle: TextStyle(color: AppColors.textMuted, fontSize: 14),
+          prefixIcon: Icon(
             BootstrapIcons.search,
             color: AppColors.textMuted,
             size: 20,

@@ -34,7 +34,7 @@ class _ALUConnectAppState extends State<ALUConnectApp> {
       builder: (context, child) {
         return MaterialApp(
           title: 'ALU Connect',
-          theme: AppTheme.dark,
+          theme: AppTheme.theme,
           debugShowCheckedModeBanner: false,
           home: _buildHome(),
           // Configure routes for navigation
@@ -142,7 +142,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  const Text(
+                  Text(
                     'Connect. Collaborate. Lead together.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -160,7 +160,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: const Text('Sign in with ALU account'),
             ),
             const SizedBox(height: 18),
-            const Text(
+            Text(
               'Or continue with',
               style: TextStyle(color: AppColors.textMuted, fontSize: 13),
             ),
@@ -225,7 +225,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               const SizedBox(width: 10),
               Text(
                 label,
-                style: const TextStyle(
+                style: TextStyle(
                   color: AppColors.textPrimary,
                   fontWeight: FontWeight.w700,
                 ),
@@ -248,7 +248,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             children: [
               GestureDetector(
                 onTap: () => setState(() => _showLogin = false),
-                child: const Icon(
+                child: Icon(
                   Icons.arrow_back,
                   color: AppColors.textSecondary,
                   size: 24,
@@ -264,7 +264,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-              const Text(
+              Text(
                 'Sign in to your ALU Connect account',
                 style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
               ),
@@ -275,19 +275,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   children: [
                     TextFormField(
                       controller: _usernameController,
-                      style: const TextStyle(color: AppColors.textPrimary),
+                      style: TextStyle(color: AppColors.textPrimary),
                       decoration: InputDecoration(
                         hintText: 'Username',
-                        hintStyle: const TextStyle(color: AppColors.textMuted),
+                        hintStyle: TextStyle(color: AppColors.textMuted),
                         filled: true,
                         fillColor: AppColors.surfaceElevated,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: AppColors.border),
+                          borderSide: BorderSide(color: AppColors.border),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: AppColors.border),
+                          borderSide: BorderSide(color: AppColors.border),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -311,19 +311,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     const SizedBox(height: 16),
                     TextFormField(
                       controller: _emailController,
-                      style: const TextStyle(color: AppColors.textPrimary),
+                      style: TextStyle(color: AppColors.textPrimary),
                       decoration: InputDecoration(
                         hintText: 'Email address',
-                        hintStyle: const TextStyle(color: AppColors.textMuted),
+                        hintStyle: TextStyle(color: AppColors.textMuted),
                         filled: true,
                         fillColor: AppColors.surfaceElevated,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: AppColors.border),
+                          borderSide: BorderSide(color: AppColors.border),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: AppColors.border),
+                          borderSide: BorderSide(color: AppColors.border),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -352,19 +352,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     TextFormField(
                       controller: _passwordController,
                       obscureText: true,
-                      style: const TextStyle(color: AppColors.textPrimary),
+                      style: TextStyle(color: AppColors.textPrimary),
                       decoration: InputDecoration(
                         hintText: 'Password',
-                        hintStyle: const TextStyle(color: AppColors.textMuted),
+                        hintStyle: TextStyle(color: AppColors.textMuted),
                         filled: true,
                         fillColor: AppColors.surfaceElevated,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: AppColors.border),
+                          borderSide: BorderSide(color: AppColors.border),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: AppColors.border),
+                          borderSide: BorderSide(color: AppColors.border),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
@@ -397,7 +397,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 fullWidth: true,
                 onPressed: _isLoading ? null : _handleLogin,
                 child: _isLoading
-                    ? const SizedBox(
+                    ? SizedBox(
                         height: 20,
                         width: 20,
                         child: CircularProgressIndicator(

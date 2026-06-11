@@ -104,7 +104,7 @@ class _ProfileScreenState extends State<ProfileScreen>
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
           child: Row(
             children: [
-              const Expanded(
+              Expanded(
                 child: Text(
                   'Profile',
                   style: TextStyle(
@@ -116,7 +116,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 ),
               ),
               IconButton(
-                icon: const Icon(
+                icon: Icon(
                   Icons.settings_outlined,
                   color: AppColors.textSecondary,
                 ),
@@ -157,7 +157,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                         children: [
                           Text(
                             user.name,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w800,
                               color: AppColors.textPrimary,
@@ -166,7 +166,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                           const SizedBox(height: 3),
                           Row(
                             children: [
-                              const Icon(
+                              Icon(
                                 BootstrapIcons.geo_alt,
                                 size: 13,
                                 color: AppColors.textMuted,
@@ -174,7 +174,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                               const SizedBox(width: 3),
                               Text(
                                 user.campus,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 12,
                                   color: AppColors.textSecondary,
                                 ),
@@ -184,7 +184,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                           const SizedBox(height: 2),
                           Text(
                             '${user.major} • ${user.cohort}',
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 12,
                               color: AppColors.textMuted,
                             ),
@@ -235,7 +235,8 @@ class _ProfileScreenState extends State<ProfileScreen>
                 const SizedBox(height: 20),
 
                 // Badges
-                Row(
+                Wrap(
+                  runSpacing: 8,
                   children: [
                     ...MockData.badges.map(
                       (b) => Padding(
@@ -286,7 +287,7 @@ class _ProfileScreenState extends State<ProfileScreen>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'My Interests',
                 style: TextStyle(
                   fontSize: 14,
@@ -318,7 +319,7 @@ class _ProfileScreenState extends State<ProfileScreen>
     return ListView(
       padding: const EdgeInsets.only(top: 8, bottom: 24),
       children: [
-        const Padding(
+        Padding(
           padding: EdgeInsets.fromLTRB(20, 8, 20, 0),
           child: Text(
             'My RSVPs',
@@ -331,7 +332,7 @@ class _ProfileScreenState extends State<ProfileScreen>
         ),
         ...myEvents.map((e) => _RSVPRow(event: e)),
         if (myEvents.isEmpty)
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(40),
             child: Center(
               child: Text(
@@ -351,7 +352,7 @@ class _ProfileScreenState extends State<ProfileScreen>
       padding: const EdgeInsets.only(top: 8, bottom: 24),
       children: saved.isEmpty
           ? [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(40),
                 child: Center(
                   child: Text(
@@ -391,7 +392,9 @@ class _ProfileScreenState extends State<ProfileScreen>
 
     return ListView(
       padding: const EdgeInsets.all(20),
-      children: items.map((item) {
+      children: [
+        _buildThemeToggle(),
+        ...items.map((item) {
         final (label, icon, color) = item;
         final isSignOut = label == 'Sign Out';
         return Material(
@@ -441,7 +444,53 @@ class _ProfileScreenState extends State<ProfileScreen>
             ),
           ),
         );
-      }).toList(),
+        }),
+      ],
+    );
+  }
+
+  Widget _buildThemeToggle() {
+    final isDark = widget.appState.isDarkMode;
+    return Material(
+      color: AppColors.card,
+      borderRadius: BorderRadius.circular(14),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: AppColors.border),
+        ),
+        child: SwitchListTile(
+          value: isDark,
+          onChanged: (v) => widget.appState.toggleTheme(v),
+          activeThumbColor: AppColors.amber,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 14),
+          secondary: Container(
+            width: 36,
+            height: 36,
+            decoration: BoxDecoration(
+              color: AppColors.amber.withAlpha((0.15 * 255).round()),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Icon(
+              isDark ? BootstrapIcons.moon_stars : BootstrapIcons.sun,
+              color: AppColors.amber,
+              size: 18,
+            ),
+          ),
+          title: Text(
+            isDark ? 'Dark Mode' : 'Light Mode',
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: AppColors.textPrimary,
+            ),
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -459,7 +508,7 @@ class _ProfileStat extends StatelessWidget {
         children: [
           Text(
             '$count',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w800,
               color: AppColors.textPrimary,
@@ -468,7 +517,7 @@ class _ProfileStat extends StatelessWidget {
           const SizedBox(height: 2),
           Text(
             label,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 11,
               color: AppColors.textSecondary,
             ),
@@ -532,7 +581,7 @@ class _RSVPRow extends StatelessWidget {
               children: [
                 Text(
                   event.title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                     color: AppColors.textPrimary,
@@ -543,7 +592,7 @@ class _RSVPRow extends StatelessWidget {
                 const SizedBox(height: 3),
                 Text(
                   '${_fmtDate(event.date)} • ${event.location}',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 12,
                     color: AppColors.textSecondary,
                   ),

@@ -97,7 +97,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 const SizedBox(height: 12),
                 TextButton(
                   onPressed: () => setState(() => _showLogin = true),
-                  child: const Text(
+                  child: Text(
                     'Skip',
                     style: TextStyle(color: AppColors.textMuted, fontSize: 14),
                   ),
@@ -130,7 +130,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               const ALULogo(size: 36),
               const SizedBox(width: 12),
               RichText(
-                text: const TextSpan(
+                text: TextSpan(
                   children: [
                     TextSpan(
                       text: 'ALU ',
@@ -175,7 +175,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.w800,
               color: AppColors.textPrimary,
@@ -187,7 +187,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Text(
             subtitle,
             textAlign: TextAlign.center,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               color: AppColors.textSecondary,
               height: 1.6,
@@ -214,7 +214,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'ALU Connect',
                       style: TextStyle(
                         fontSize: 24,
@@ -236,7 +236,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ],
             ),
             const SizedBox(height: 48),
-            const Text(
+            Text(
               'Welcome back 👋',
               style: TextStyle(
                 fontSize: 28,
@@ -246,7 +246,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
             const SizedBox(height: 6),
-            const Text(
+            Text(
               'Sign in to your ALU account',
               style: TextStyle(fontSize: 15, color: AppColors.textSecondary),
             ),
@@ -255,7 +255,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'ALU Email',
                   style: TextStyle(
                     fontSize: 13,
@@ -265,20 +265,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 const SizedBox(height: 8),
                 TextField(
-                  style: const TextStyle(color: AppColors.textPrimary),
+                  style: TextStyle(color: AppColors.textPrimary),
                   decoration: InputDecoration(
                     hintText: 'you@alueducation.com',
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.email_outlined,
                       color: AppColors.textMuted,
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: AppColors.border),
+                      borderSide: BorderSide(color: AppColors.border),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: AppColors.border),
+                      borderSide: BorderSide(color: AppColors.border),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -297,7 +297,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Password',
                   style: TextStyle(
                     fontSize: 13,
@@ -308,24 +308,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 const SizedBox(height: 8),
                 TextField(
                   obscureText: true,
-                  style: const TextStyle(color: AppColors.textPrimary),
+                  style: TextStyle(color: AppColors.textPrimary),
                   decoration: InputDecoration(
                     hintText: '••••••••',
-                    prefixIcon: const Icon(
+                    prefixIcon: Icon(
                       Icons.lock_outline,
                       color: AppColors.textMuted,
                     ),
-                    suffixIcon: const Icon(
+                    suffixIcon: Icon(
                       Icons.visibility_outlined,
                       color: AppColors.textMuted,
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: AppColors.border),
+                      borderSide: BorderSide(color: AppColors.border),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(color: AppColors.border),
+                      borderSide: BorderSide(color: AppColors.border),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -370,15 +370,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             const SizedBox(height: 24),
             Row(
               children: [
-                const Expanded(child: Divider(color: AppColors.border)),
-                const Padding(
+                Expanded(child: Divider(color: AppColors.border)),
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 12),
                   child: Text(
                     'or continue with',
                     style: TextStyle(color: AppColors.textMuted, fontSize: 12),
                   ),
                 ),
-                const Expanded(child: Divider(color: AppColors.border)),
+                Expanded(child: Divider(color: AppColors.border)),
               ],
             ),
             const SizedBox(height: 16),
@@ -422,7 +422,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: RichText(
                 text: TextSpan(
                   children: [
-                    const TextSpan(
+                    TextSpan(
                       text: 'New here? ',
                       style: TextStyle(
                         color: AppColors.textMuted,
@@ -483,7 +483,7 @@ class _SocialButton extends StatelessWidget {
             const SizedBox(width: 8),
             Text(
               label,
-              style: const TextStyle(
+              style: TextStyle(
                 color: AppColors.textPrimary,
                 fontSize: 14,
                 fontWeight: FontWeight.w600,

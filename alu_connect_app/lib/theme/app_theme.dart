@@ -6,43 +6,78 @@ const String mobile = 'MOBILE';
 const String tablet = 'TABLET';
 const String desktop = 'DESKTOP';
 
+/// App color palette.
+///
+/// Brand/accent and tag colors are constant across themes. The
+/// surface / text / border tokens are exposed as dynamic getters that switch
+/// between the dark and light palettes based on [isDark]. Widgets reference
+/// these getters (e.g. `AppColors.background`) so a single flag flip repaints
+/// the whole app.
 class AppColors {
-  // Primary palette
-  static const Color background = Color(0xFF090B19);
-  static const Color surface = Color(0xFF11172B);
-  static const Color surfaceElevated = Color(0xFF16203A);
-  static const Color card = Color(0xFF1E2741);
+  /// Drives the dynamic tokens below. Toggled via AppState.toggleTheme().
+  static bool isDark = true;
 
-  // Accent
+  // Accent / brand (identical in both themes)
   static const Color amber = Color(0xFFFFC85C);
   static const Color amberLight = Color(0xFFFFE3A8);
   static const Color amberDark = Color(0xFFCE8C15);
 
-  // Secondary accent
+  // Secondary accents (identical in both themes)
   static const Color teal = Color(0xFF44D7C9);
   static const Color purple = Color(0xFF8F6BFF);
   static const Color coral = Color(0xFFFF6B82);
   static const Color blue = Color(0xFF55A8FF);
 
-  // Text
-  static const Color textPrimary = Color(0xFFECEFF8);
-  static const Color textSecondary = Color(0xFF9AA5C9);
-  static const Color textMuted = Color(0xFF6B7592);
-
-  // Borders
-  static const Color border = Color(0xFF202A44);
-  static const Color borderLight = Color(0xFF2A3759);
-
-  // Tag colors
+  // Tag colors (identical in both themes)
   static const Color tagEvent = Color(0xFF142A4A);
   static const Color tagOpportunity = Color(0xFF143A35);
   static const Color tagWorkshop = Color(0xFF3C2A5A);
   static const Color tagCompetition = Color(0xFF5A2430);
+
+  // --- Dark palette ---
+  static const Color _dBackground = Color(0xFF090B19);
+  static const Color _dSurface = Color(0xFF11172B);
+  static const Color _dSurfaceElevated = Color(0xFF16203A);
+  static const Color _dCard = Color(0xFF1E2741);
+  static const Color _dTextPrimary = Color(0xFFECEFF8);
+  static const Color _dTextSecondary = Color(0xFF9AA5C9);
+  static const Color _dTextMuted = Color(0xFF6B7592);
+  static const Color _dBorder = Color(0xFF202A44);
+  static const Color _dBorderLight = Color(0xFF2A3759);
+
+  // --- Light palette ---
+  static const Color _lBackground = Color(0xFFF3F5FB);
+  static const Color _lSurface = Color(0xFFFFFFFF);
+  static const Color _lSurfaceElevated = Color(0xFFEDF1F9);
+  static const Color _lCard = Color(0xFFFFFFFF);
+  static const Color _lTextPrimary = Color(0xFF161B2E);
+  static const Color _lTextSecondary = Color(0xFF515D7E);
+  static const Color _lTextMuted = Color(0xFF8A93AD);
+  static const Color _lBorder = Color(0xFFDCE2EF);
+  static const Color _lBorderLight = Color(0xFFC7D0E2);
+
+  // --- Dynamic tokens (theme-aware) ---
+  static Color get background => isDark ? _dBackground : _lBackground;
+  static Color get surface => isDark ? _dSurface : _lSurface;
+  static Color get surfaceElevated =>
+      isDark ? _dSurfaceElevated : _lSurfaceElevated;
+  static Color get card => isDark ? _dCard : _lCard;
+  static Color get textPrimary => isDark ? _dTextPrimary : _lTextPrimary;
+  static Color get textSecondary => isDark ? _dTextSecondary : _lTextSecondary;
+  static Color get textMuted => isDark ? _dTextMuted : _lTextMuted;
+  static Color get border => isDark ? _dBorder : _lBorder;
+  static Color get borderLight => isDark ? _dBorderLight : _lBorderLight;
 }
 
 class AppTheme {
-  static ThemeData get dark {
-    final baseTextTheme = const TextTheme(
+  /// Backwards-compatible alias.
+  static ThemeData get dark => theme;
+
+  /// Builds the active [ThemeData] from the current [AppColors] palette.
+  static ThemeData get theme {
+    final isDark = AppColors.isDark;
+
+    final baseTextTheme = TextTheme(
       displayLarge: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.w800,
@@ -90,24 +125,35 @@ class AppTheme {
       ),
     );
 
+    final colorScheme = isDark
+        ? const ColorScheme.dark(
+            primary: AppColors.amber,
+            onPrimary: AppColors._dBackground,
+            secondary: AppColors.teal,
+            onSecondary: AppColors._dBackground,
+            surface: AppColors._dSurface,
+            onSurface: AppColors._dTextPrimary,
+          )
+        : const ColorScheme.light(
+            primary: AppColors.amber,
+            onPrimary: AppColors._lTextPrimary,
+            secondary: AppColors.teal,
+            onSecondary: AppColors._lTextPrimary,
+            surface: AppColors._lSurface,
+            onSurface: AppColors._lTextPrimary,
+          );
+
     return ThemeData(
       useMaterial3: true,
-      brightness: Brightness.dark,
-      colorScheme: const ColorScheme.dark(
-        primary: AppColors.amber,
-        onPrimary: AppColors.background,
-        secondary: AppColors.teal,
-        onSecondary: AppColors.background,
-        surface: AppColors.surface,
-        onSurface: AppColors.textPrimary,
-      ),
+      brightness: isDark ? Brightness.dark : Brightness.light,
+      colorScheme: colorScheme,
       scaffoldBackgroundColor: AppColors.background,
       canvasColor: AppColors.background,
       cardColor: AppColors.surfaceElevated,
-      dialogTheme: const DialogThemeData(
+      dialogTheme: DialogThemeData(
         backgroundColor: AppColors.surfaceElevated,
       ),
-      shadowColor: const Color(0xFF020A1F),
+      shadowColor: isDark ? const Color(0xFF020A1F) : const Color(0x1A1E2741),
       splashColor: AppColors.amber.withAlpha(40),
       highlightColor: AppColors.teal.withAlpha(30),
       textTheme: GoogleFonts.interTextTheme(baseTextTheme),
@@ -121,7 +167,7 @@ class AppTheme {
           fontWeight: FontWeight.w700,
           letterSpacing: -0.3,
         ),
-        iconTheme: const IconThemeData(color: AppColors.textPrimary, size: 22),
+        iconTheme: IconThemeData(color: AppColors.textPrimary, size: 22),
       ),
       cardTheme: CardThemeData(
         color: AppColors.surfaceElevated,
@@ -132,7 +178,8 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.amber,
-          foregroundColor: AppColors.background,
+          // Amber is light, so its label/icon is dark in both themes.
+          foregroundColor: const Color(0xFF161B2E),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
@@ -239,7 +286,7 @@ class AppTheme {
           ),
         ),
       ),
-      dividerTheme: const DividerThemeData(
+      dividerTheme: DividerThemeData(
         color: AppColors.border,
         thickness: 1,
         space: 1,

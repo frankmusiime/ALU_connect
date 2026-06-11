@@ -44,7 +44,7 @@ class _CommunitiesScreenState extends State<CommunitiesScreen>
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 16),
               child: Row(
                 children: [
-                  const Expanded(
+                  Expanded(
                     child: Text(
                       'Communities',
                       style: TextStyle(
@@ -61,7 +61,7 @@ class _CommunitiesScreenState extends State<CommunitiesScreen>
                       color: AppColors.amber,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.add,
                       color: AppColors.background,
                       size: 18,
@@ -159,7 +159,7 @@ class _CommunitiesScreenState extends State<CommunitiesScreen>
               ),
             ),
             const SizedBox(height: 16),
-            const Text(
+            Text(
               'No communities yet',
               style: TextStyle(
                 fontSize: 18,
@@ -168,7 +168,7 @@ class _CommunitiesScreenState extends State<CommunitiesScreen>
               ),
             ),
             const SizedBox(height: 8),
-            const Text(
+            Text(
               'Explore and join communities that match your interests',
               style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
               textAlign: TextAlign.center,
@@ -237,7 +237,7 @@ class _CommunityDetailSheetState extends State<_CommunityDetailSheet> {
           const SizedBox(height: 16),
           Text(
             c.name,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w800,
               color: AppColors.textPrimary,
@@ -246,7 +246,7 @@ class _CommunityDetailSheetState extends State<_CommunityDetailSheet> {
           const SizedBox(height: 6),
           Text(
             '${c.memberCount} members',
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 14,
               color: AppColors.textSecondary,
             ),
@@ -255,7 +255,7 @@ class _CommunityDetailSheetState extends State<_CommunityDetailSheet> {
           Text(
             c.description,
             textAlign: TextAlign.center,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 14,
               color: AppColors.textSecondary,
               height: 1.6,
@@ -287,7 +287,7 @@ class _CommunityDetailSheetState extends State<_CommunityDetailSheet> {
                   ? AppColors.textPrimary
                   : Colors.white,
               side: c.isJoined
-                  ? const BorderSide(color: AppColors.border)
+                  ? BorderSide(color: AppColors.border)
                   : null,
               padding: const EdgeInsets.symmetric(vertical: 16),
               shape: RoundedRectangleBorder(

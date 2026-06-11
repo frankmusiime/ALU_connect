@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 TextSpan(
                                   text:
                                       'Hi, ${user?.name.split(' ').first ?? 'there'}! ',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 24,
                                     fontWeight: FontWeight.w800,
                                     color: AppColors.textPrimary,
@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           const SizedBox(height: 2),
-                          const Text(
+                          Text(
                             "What's happening today?",
                             style: TextStyle(
                               fontSize: 14,
@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(color: AppColors.border),
                         ),
-                        child: const Icon(
+                        child: Icon(
                           BootstrapIcons.bell,
                           color: AppColors.textSecondary,
                           size: 20,
@@ -250,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
                   child: Text(
                     '${events.length} result${events.length == 1 ? '' : 's'}',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 13,
                       color: AppColors.textMuted,
                     ),
@@ -343,7 +343,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                            Text(
                               'Sustainable Solutions Challenge',
                               style: TextStyle(
                                 fontSize: 14,
@@ -352,7 +352,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             const SizedBox(height: 3),
-                            const Text(
+                            Text(
                               'Apply by May 28, 2026 • Mauritius Campus',
                               style: TextStyle(
                                 fontSize: 12,
