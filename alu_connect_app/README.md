@@ -1,8 +1,7 @@
-# ALU Connect 🌍
+# ALU Connect 
 
-> **Connect. Collaborate. Lead together.**
 
-A mobile-first campus engagement platform for the African Leadership University ecosystem — built with Flutter.
+A mobile-first campus engagement platform for the African Leadership University ecosystem built with Flutter.
 
 ---
 
@@ -14,43 +13,17 @@ The app mirrors the structure of the physical ALU campus, making navigation intu
 
 ---
 
-## Screenshots
-
-| Onboarding | Home | Explore |
-|---|---|---|
-| Sign in & interest selection | Personalized dashboard | Filtered event feed |
-
-| Event Detail | Communities | Chats |
-|---|---|---|
-| RSVP flow + capacity bar | Join/leave clubs | Real-time messaging |
-
-| Create Post | Profile | My RSVPs |
-|---|---|---|
-| Event & opportunity creation | Stats, badges & settings | Activity tracker |
-
----
-
 ## Features
 
-### ✅ Minimum Requirements
+### Implemented Features
 | Requirement | Implementation |
 |---|---|
-| Authentication / Onboarding | 3-page onboarding + login screen with ALU email, Google & Apple sign-in |
+| Authentication / Onboarding | login screen with username, email, password, Google & Apple sign-in |
 | Dynamic Feed | Personalized home dashboard + filterable explore feed |
 | RSVP / Participation | Going / Interested states with capacity progress bar |
 | Lightweight Chat | Group chat rooms with file attachments and real-time send |
 | Profile / Identity | User profile with stats, badges, interests, and RSVP history |
 | Navigation & State | Bottom nav shell + Provider-ready state across all screens |
-
-### ⭐ Additional Features
-- **Campus Directory** — Browse student leaders, club executives, and coaches
-- **Engagement Badges** — Earned for community building, opportunity hunting, early adoption
-- **Create Post flow** — Role-gated event and opportunity publishing with cover image, date picker, location and category selectors
-- **Save & Share** — Bookmark any event; share from detail screen
-- **Smart filter chips** — Filter explore feed by All / Events / Opportunities / Workshops / Clubs
-- **Empty state handling** — Every list has a clear, actionable empty state
-- **Snackbar feedback** — Every user action (save, RSVP, join, publish) gives immediate visual confirmation
-- **Capacity bar** — Visual indicator of how many spots remain on each event
 
 ---
 
@@ -58,42 +31,31 @@ The app mirrors the structure of the physical ALU campus, making navigation intu
 
 ```
 lib/
-├── main.dart                  # App entry point
+├── main.dart                  
 ├── theme/
-│   └── app_theme.dart         # Color palette, typography, component themes
+│   └── app_theme.dart         
 ├── models/
-│   └── models.dart            # Data models: User, Event, Community, Message, Chat
+│   └── models.dart            
 ├── data/
-│   └── mock_data.dart         # All mock data (users, events, communities, chats)
+│   └── mock_data.dart         
 ├── widgets/
-│   └── shared_widgets.dart    # Reusable components (cards, chips, avatars, buttons)
+│   └── shared_widgets.dart    
 └── screens/
-    ├── onboarding_screen.dart  # 3-step onboarding + login
-    ├── main_shell.dart         # Bottom nav shell + FAB
-    ├── home_screen.dart        # Personalized dashboard
-    ├── explore_screen.dart     # Searchable, filterable feed
-    ├── event_detail_screen.dart# Full event view + RSVP
-    ├── communities_screen.dart # All clubs / My clubs tabs
-    ├── chats_screen.dart       # Chat list + chat room
-    ├── create_post_screen.dart # Event / opportunity creation form
-    └── profile_screen.dart     # Profile, saved, activity, settings
+    ├── onboarding_screen.dart  
+    ├── main_shell.dart         
+    ├── home_screen.dart        
+    ├── explore_screen.dart     
+    ├── event_detail_screen.dart
+    ├── communities_screen.dart 
+    ├── chats_screen.dart       
+    ├── create_post_screen.dart 
+    └── profile_screen.dart    
 ```
 
 ---
 
 ## Design System
 
-### Color Palette
-| Token | Hex | Usage |
-|---|---|---|
-| `background` | `#0D0F1A` | App background |
-| `surface` | `#151829` | Cards, bottom nav |
-| `surfaceElevated` | `#1C2035` | Inputs, dropdowns |
-| `amber` | `#FFC107` | Primary accent, CTAs |
-| `teal` | `#00BFA5` | Going status, success states |
-| `purple` | `#7C4DFF` | Workshops, secondary accent |
-| `coral` | `#FF5252` | Competitions, errors |
-| `blue` | `#448AFF` | Events, links |
 
 ### Typography
 - **Display / Headings** — Weight 800, tight letter-spacing (`-0.5` to `-0.8`)
@@ -132,7 +94,7 @@ lib/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-team/alu-connect.git
+git clone https://github.com/frankmusiime/ALU_connect.git
 cd alu-connect
 
 # Install dependencies
@@ -199,30 +161,6 @@ FAB (center)
 | — | `feature/chats` | Chat list, chat room, messaging |
 | — | `feature/profile` | Profile, RSVPs, settings |
 
-> Each member should commit to their branch and open a pull request for review before merging to `main`.
-
----
-
-## AI Usage Disclosure
-
-AI tools were used in this project for:
-- **Brainstorming** feature ideas and UX flows relevant to the ALU context
-- **Boilerplate generation** for repetitive widget structures (e.g., list tiles, info cards)
-- **Debugging** layout and state issues
-
-All submitted code has been reviewed, understood, and is explainable by every team member. No AI-generated code was submitted without full comprehension of its logic and design rationale.
-
----
-
-## Known Limitations & Roadmap
-
-| Limitation | Planned Fix |
-|---|---|
-| Mock data only | Integrate Firestore for live events and messaging |
-| No push notifications | Add Firebase Cloud Messaging |
-| No image upload | Integrate Firebase Storage or Supabase Storage |
-| No role-based auth | Implement role gating on `CreatePostScreen` |
-| Chat is local state only | Migrate to Firestore real-time streams |
 
 ---
 
