@@ -1,6 +1,6 @@
 {
-    "name": "alu_connect",
-    "short_name": "alu_connect",
+    "name": "alu_connect_app",
+    "short_name": "alu_connect_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
