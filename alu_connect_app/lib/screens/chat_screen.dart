@@ -39,7 +39,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
               child: Row(
                 children: [
-                  const Expanded(
+                  Expanded(
                     child: Text(
                       'Chats',
                       style: TextStyle(
@@ -57,7 +57,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(color: AppColors.border),
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.edit_outlined,
                       color: AppColors.textSecondary,
                       size: 18,

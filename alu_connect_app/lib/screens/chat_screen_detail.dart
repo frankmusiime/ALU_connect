@@ -80,7 +80,7 @@ class _ChatScreenDetailState extends State<ChatScreenDetail> {
                 children: [
                   Text(
                     chat.name,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
                       color: AppColors.textPrimary,
@@ -89,7 +89,7 @@ class _ChatScreenDetailState extends State<ChatScreenDetail> {
                   const SizedBox(height: 2),
                   Text(
                     chat.isGroup ? '${chat.name} • Active now' : 'Active now',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
                       color: AppColors.textSecondary,
                     ),
@@ -111,7 +111,7 @@ class _ChatScreenDetailState extends State<ChatScreenDetail> {
               borderRadius: BorderRadius.circular(10),
               border: Border.all(color: AppColors.border),
             ),
-            child: const Icon(
+            child: Icon(
               Icons.arrow_back,
               color: AppColors.textSecondary,
               size: 18,
@@ -128,7 +128,7 @@ class _ChatScreenDetailState extends State<ChatScreenDetail> {
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: AppColors.border),
               ),
-              child: const Icon(
+              child: Icon(
                 Icons.more_vert_outlined,
                 color: AppColors.textSecondary,
                 size: 18,
@@ -183,7 +183,7 @@ class _ChatScreenDetailState extends State<ChatScreenDetail> {
                 Expanded(
                   child: TextField(
                     controller: _messageController,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: AppColors.textPrimary,
                       fontSize: 14,
                     ),
@@ -192,7 +192,7 @@ class _ChatScreenDetailState extends State<ChatScreenDetail> {
                     onSubmitted: (_) => _sendMessage(),
                     decoration: InputDecoration(
                       hintText: 'Type a message...',
-                      hintStyle: const TextStyle(
+                      hintStyle: TextStyle(
                         color: AppColors.textMuted,
                         fontSize: 14,
                       ),
@@ -204,11 +204,11 @@ class _ChatScreenDetailState extends State<ChatScreenDetail> {
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: const BorderSide(color: AppColors.border),
+                        borderSide: BorderSide(color: AppColors.border),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: const BorderSide(color: AppColors.border),
+                        borderSide: BorderSide(color: AppColors.border),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -230,7 +230,7 @@ class _ChatScreenDetailState extends State<ChatScreenDetail> {
                       color: AppColors.amber,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.send_rounded,
                       color: AppColors.background,
                       size: 18,
@@ -261,7 +261,7 @@ class _ChatScreenDetailState extends State<ChatScreenDetail> {
                 padding: const EdgeInsets.only(bottom: 4, left: 8),
                 child: Text(
                   message.senderName,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.w600,
                     color: AppColors.textMuted,
@@ -343,7 +343,7 @@ class _ChatScreenDetailState extends State<ChatScreenDetail> {
               padding: const EdgeInsets.only(top: 4, left: 8, right: 8),
               child: Text(
                 _formatTime(message.timestamp),
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 11,
                   color: AppColors.textMuted,
                 ),

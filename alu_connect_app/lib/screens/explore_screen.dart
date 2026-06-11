@@ -59,7 +59,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
                 child: Row(
                   children: [
-                    const Expanded(
+                    Expanded(
                       child: Text(
                         'Explore',
                         style: TextStyle(
@@ -79,7 +79,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(color: AppColors.border),
                         ),
-                        child: const Icon(
+                        child: Icon(
                           BootstrapIcons.funnel,
                           color: AppColors.textSecondary,
                           size: 18,
@@ -141,7 +141,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
                   child: Text(
                     '${_filteredEvents.length} result${_filteredEvents.length == 1 ? '' : 's'}',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 13,
                       color: AppColors.textMuted,
                     ),
@@ -244,7 +244,7 @@ class _ExploreEventCard extends StatelessWidget {
                       Expanded(
                         child: Text(
                           event.title,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
                             color: AppColors.textPrimary,
@@ -261,7 +261,7 @@ class _ExploreEventCard extends StatelessWidget {
                   const SizedBox(height: 6),
                   Text(
                     event.organizer,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
                       color: AppColors.textMuted,
                     ),
@@ -272,7 +272,7 @@ class _ExploreEventCard extends StatelessWidget {
                       Expanded(
                         child: Row(
                           children: [
-                            const Icon(
+                            Icon(
                               BootstrapIcons.calendar,
                               size: 12,
                               color: AppColors.textMuted,
@@ -283,14 +283,14 @@ class _ExploreEventCard extends StatelessWidget {
                                 _formatDate(event.date),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 12,
                                   color: AppColors.textSecondary,
                                 ),
                               ),
                             ),
                             const SizedBox(width: 12),
-                            const Icon(
+                            Icon(
                               BootstrapIcons.people,
                               size: 12,
                               color: AppColors.textMuted,
@@ -301,7 +301,7 @@ class _ExploreEventCard extends StatelessWidget {
                                 '${event.goingCount} going',
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 12,
                                   color: AppColors.textSecondary,
                                 ),
@@ -364,7 +364,7 @@ class _EmptyState extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          const Text(
+          Text(
             'Nothing found',
             style: TextStyle(
               fontSize: 18,
@@ -373,7 +373,7 @@ class _EmptyState extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          const Text(
+          Text(
             'Try a different search term or filter',
             style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
             textAlign: TextAlign.center,

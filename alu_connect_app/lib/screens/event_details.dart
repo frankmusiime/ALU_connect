@@ -67,7 +67,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                     color: AppColors.background.withAlpha((0.8 * 255).round()),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.arrow_back,
                     color: AppColors.textPrimary,
                     size: 20,
@@ -125,7 +125,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                     color: AppColors.background.withAlpha((0.8 * 255).round()),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.share_outlined,
                     color: AppColors.textSecondary,
                     size: 20,
@@ -181,7 +181,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                         const SizedBox(height: 10),
                         Text(
                           event.title,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.w800,
                             color: AppColors.textPrimary,
@@ -262,7 +262,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   const SizedBox(height: 24),
 
                   // Tags
-                  const Text(
+                  Text(
                     'Tags',
                     style: TextStyle(
                       fontSize: 14,
@@ -282,7 +282,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   const SizedBox(height: 24),
 
                   // Description
-                  const Text(
+                  Text(
                     'About this event',
                     style: TextStyle(
                       fontSize: 16,
@@ -293,7 +293,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   const SizedBox(height: 10),
                   Text(
                     event.description,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 14,
                       color: AppColors.textSecondary,
                       height: 1.7,
@@ -314,7 +314,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
+                          Text(
                             'Spots filling up',
                             style: TextStyle(
                               fontSize: 12,
@@ -323,7 +323,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                           ),
                           Text(
                             '${event.goingCount}/${event.capacity} spots taken',
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
                               color: AppColors.textSecondary,
@@ -416,7 +416,7 @@ class _StatPill extends StatelessWidget {
             ),
             Text(
               label,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 10,
                 color: AppColors.textMuted,
                 fontWeight: FontWeight.w500,
@@ -471,7 +471,7 @@ class _InfoCard extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 11,
                     color: AppColors.textMuted,
                   ),
@@ -479,7 +479,7 @@ class _InfoCard extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   value,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                     color: AppColors.textPrimary,

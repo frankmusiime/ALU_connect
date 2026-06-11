@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import '../models/models.dart';
 import '../data/mock_data.dart';
+import '../theme/app_theme.dart';
 
 /// Global app state management service for handling authentication, user data, and app state.
 class AppState with ChangeNotifier {
@@ -27,6 +28,15 @@ class AppState with ChangeNotifier {
   List<ChatPreview> get chats => _chats;
   int get selectedNavIndex => _selectedNavIndex;
   String? get selectedChatId => _selectedChatId;
+
+  // Theme state
+  bool get isDarkMode => AppColors.isDark;
+
+  /// Toggle between dark and light themes.
+  void toggleTheme([bool? dark]) {
+    AppColors.isDark = dark ?? !AppColors.isDark;
+    notifyListeners();
+  }
 
   ChatPreview? get selectedChat => _selectedChatId != null
       ? _chats.firstWhere(
