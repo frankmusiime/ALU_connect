@@ -274,7 +274,7 @@ class FeaturedEventCard extends StatelessWidget {
                           child: Icon(
                             Icons.bookmark,
                             size: 14,
-                            color: AppColors.background,
+                            color: AppColors.onAccent,
                           ),
                         ),
                       ),
@@ -881,7 +881,7 @@ class ALULogo extends StatelessWidget {
         child: Text(
           '∧',
           style: TextStyle(
-            color: AppColors.background,
+            color: AppColors.onAccent,
             fontSize: size * 0.55,
             fontWeight: FontWeight.w900,
           ),

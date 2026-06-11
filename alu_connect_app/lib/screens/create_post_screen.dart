@@ -76,7 +76,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
-                          color: AppColors.background,
+                          color: AppColors.onAccent,
                         ),
                       ),
                     ),

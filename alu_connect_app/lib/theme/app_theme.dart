@@ -17,44 +17,51 @@ class AppColors {
   /// Drives the dynamic tokens below. Toggled via AppState.toggleTheme().
   static bool isDark = true;
 
-  // Accent / brand (identical in both themes)
-  static const Color amber = Color(0xFFFFC85C);
-  static const Color amberLight = Color(0xFFFFE3A8);
-  static const Color amberDark = Color(0xFFCE8C15);
+  // ── Brand / accent — restrained, intentional palette (same in both themes) ──
+  // Indigo is the single hero color: primary actions, links, active states.
+  // (Token kept named `amber` for backwards-compatibility across the codebase.)
+  static const Color amber = Color(0xFF5E5CE6); // PRIMARY (indigo)
+  static const Color amberLight = Color(0xFFC4C2FA);
+  static const Color amberDark = Color(0xFF4A48C2);
 
-  // Secondary accents (identical in both themes)
-  static const Color teal = Color(0xFF44D7C9);
-  static const Color purple = Color(0xFF8F6BFF);
-  static const Color coral = Color(0xFFFF6B82);
-  static const Color blue = Color(0xFF55A8FF);
+  // Only two supporting accents + one quiet variant. Used sparingly and
+  // semantically, never decoratively.
+  static const Color teal = Color(0xFF15B187); // success · "Going" · opportunities
+  static const Color purple = Color(0xFF8B7BF0); // workshops (quiet indigo sibling)
+  static const Color coral = Color(0xFFE0A24E); // competitions (the one warm tone)
+  static const Color blue = Color(0xFF5E5CE6); // events (= primary indigo)
 
-  // Tag colors (identical in both themes)
+  // Text / icons placed on top of an accent fill (e.g. primary buttons).
+  static const Color onAccent = Color(0xFFFFFFFF);
+
+  // Legacy tag fills — category badges now derive a soft tint from the type
+  // color (see EventModel.typeBgColor), so these are kept only for compat.
   static const Color tagEvent = Color(0xFF142A4A);
   static const Color tagOpportunity = Color(0xFF143A35);
   static const Color tagWorkshop = Color(0xFF3C2A5A);
   static const Color tagCompetition = Color(0xFF5A2430);
 
-  // --- Dark palette ---
-  static const Color _dBackground = Color(0xFF090B19);
-  static const Color _dSurface = Color(0xFF11172B);
-  static const Color _dSurfaceElevated = Color(0xFF16203A);
-  static const Color _dCard = Color(0xFF1E2741);
-  static const Color _dTextPrimary = Color(0xFFECEFF8);
-  static const Color _dTextSecondary = Color(0xFF9AA5C9);
-  static const Color _dTextMuted = Color(0xFF6B7592);
-  static const Color _dBorder = Color(0xFF202A44);
-  static const Color _dBorderLight = Color(0xFF2A3759);
+  // --- Dark palette (neutral slate, low saturation) ---
+  static const Color _dBackground = Color(0xFF0B0D12);
+  static const Color _dSurface = Color(0xFF141720);
+  static const Color _dSurfaceElevated = Color(0xFF1B1F2A);
+  static const Color _dCard = Color(0xFF161A23);
+  static const Color _dTextPrimary = Color(0xFFF3F5FA);
+  static const Color _dTextSecondary = Color(0xFFA6ADBE);
+  static const Color _dTextMuted = Color(0xFF6B7283);
+  static const Color _dBorder = Color(0xFF252A36);
+  static const Color _dBorderLight = Color(0xFF333A48);
 
-  // --- Light palette ---
-  static const Color _lBackground = Color(0xFFF3F5FB);
+  // --- Light palette (clean neutral grays) ---
+  static const Color _lBackground = Color(0xFFF7F8FA);
   static const Color _lSurface = Color(0xFFFFFFFF);
-  static const Color _lSurfaceElevated = Color(0xFFEDF1F9);
+  static const Color _lSurfaceElevated = Color(0xFFF0F2F6);
   static const Color _lCard = Color(0xFFFFFFFF);
-  static const Color _lTextPrimary = Color(0xFF161B2E);
-  static const Color _lTextSecondary = Color(0xFF515D7E);
-  static const Color _lTextMuted = Color(0xFF8A93AD);
-  static const Color _lBorder = Color(0xFFDCE2EF);
-  static const Color _lBorderLight = Color(0xFFC7D0E2);
+  static const Color _lTextPrimary = Color(0xFF161A23);
+  static const Color _lTextSecondary = Color(0xFF5A6172);
+  static const Color _lTextMuted = Color(0xFF8B91A1);
+  static const Color _lBorder = Color(0xFFE7E9EF);
+  static const Color _lBorderLight = Color(0xFFD7DBE3);
 
   // --- Dynamic tokens (theme-aware) ---
   static Color get background => isDark ? _dBackground : _lBackground;
@@ -128,17 +135,17 @@ class AppTheme {
     final colorScheme = isDark
         ? const ColorScheme.dark(
             primary: AppColors.amber,
-            onPrimary: AppColors._dBackground,
+            onPrimary: AppColors.onAccent,
             secondary: AppColors.teal,
-            onSecondary: AppColors._dBackground,
+            onSecondary: AppColors.onAccent,
             surface: AppColors._dSurface,
             onSurface: AppColors._dTextPrimary,
           )
         : const ColorScheme.light(
             primary: AppColors.amber,
-            onPrimary: AppColors._lTextPrimary,
+            onPrimary: AppColors.onAccent,
             secondary: AppColors.teal,
-            onSecondary: AppColors._lTextPrimary,
+            onSecondary: AppColors.onAccent,
             surface: AppColors._lSurface,
             onSurface: AppColors._lTextPrimary,
           );
@@ -156,12 +163,12 @@ class AppTheme {
       shadowColor: isDark ? const Color(0xFF020A1F) : const Color(0x1A1E2741),
       splashColor: AppColors.amber.withAlpha(40),
       highlightColor: AppColors.teal.withAlpha(30),
-      textTheme: GoogleFonts.interTextTheme(baseTextTheme),
-      fontFamily: GoogleFonts.inter().fontFamily,
+      textTheme: GoogleFonts.plusJakartaSansTextTheme(baseTextTheme),
+      fontFamily: GoogleFonts.plusJakartaSans().fontFamily,
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.surface,
         elevation: 0,
-        titleTextStyle: GoogleFonts.inter(
+        titleTextStyle: GoogleFonts.plusJakartaSans(
           color: AppColors.textPrimary,
           fontSize: 20,
           fontWeight: FontWeight.w700,
@@ -178,13 +185,12 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.amber,
-          // Amber is light, so its label/icon is dark in both themes.
-          foregroundColor: const Color(0xFF161B2E),
+          foregroundColor: AppColors.onAccent,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
           ),
-          textStyle: GoogleFonts.inter(
+          textStyle: GoogleFonts.plusJakartaSans(
             fontSize: 15,
             fontWeight: FontWeight.w700,
           ),
@@ -200,7 +206,7 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
           ),
-          textStyle: GoogleFonts.inter(
+          textStyle: GoogleFonts.plusJakartaSans(
             fontSize: 15,
             fontWeight: FontWeight.w700,
           ),
@@ -209,7 +215,7 @@ class AppTheme {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: AppColors.amber,
-          textStyle: GoogleFonts.inter(
+          textStyle: GoogleFonts.plusJakartaSans(
             fontSize: 14,
             fontWeight: FontWeight.w700,
           ),
@@ -230,7 +236,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(14),
           borderSide: BorderSide(color: AppColors.amber, width: 1.5),
         ),
-        hintStyle: GoogleFonts.inter(color: AppColors.textMuted, fontSize: 15),
+        hintStyle: GoogleFonts.plusJakartaSans(color: AppColors.textMuted, fontSize: 15),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 14,
@@ -238,7 +244,7 @@ class AppTheme {
       ),
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.surfaceElevated,
-        labelStyle: GoogleFonts.inter(
+        labelStyle: GoogleFonts.plusJakartaSans(
           color: AppColors.textSecondary,
           fontSize: 12,
         ),
@@ -248,7 +254,7 @@ class AppTheme {
       ),
       popupMenuTheme: PopupMenuThemeData(
         color: AppColors.surfaceElevated,
-        textStyle: GoogleFonts.inter(
+        textStyle: GoogleFonts.plusJakartaSans(
           color: AppColors.textPrimary,
           fontSize: 14,
         ),
@@ -256,7 +262,7 @@ class AppTheme {
       ),
       snackBarTheme: SnackBarThemeData(
         backgroundColor: AppColors.surfaceElevated,
-        contentTextStyle: GoogleFonts.inter(
+        contentTextStyle: GoogleFonts.plusJakartaSans(
           color: AppColors.textPrimary,
           fontSize: 14,
         ),
@@ -277,7 +283,7 @@ class AppTheme {
           ),
         ),
         labelTextStyle: WidgetStateProperty.resolveWith(
-          (states) => GoogleFonts.inter(
+          (states) => GoogleFonts.plusJakartaSans(
             fontSize: 11,
             fontWeight: FontWeight.w600,
             color: states.contains(WidgetState.selected)

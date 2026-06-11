@@ -63,7 +63,7 @@ class _CommunitiesScreenState extends State<CommunitiesScreen>
                     ),
                     child: Icon(
                       Icons.add,
-                      color: AppColors.background,
+                      color: AppColors.onAccent,
                       size: 18,
                     ),
                   ),

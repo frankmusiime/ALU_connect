@@ -232,7 +232,7 @@ class _ChatScreenDetailState extends State<ChatScreenDetail> {
                     ),
                     child: Icon(
                       Icons.send_rounded,
-                      color: AppColors.background,
+                      color: AppColors.onAccent,
                       size: 18,
                     ),
                   ),

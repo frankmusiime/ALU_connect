@@ -114,15 +114,9 @@ class EventModel {
     }
   }
 
-  Color get typeBgColor {
-    switch (type) {
-      case EventType.event: return AppColors.tagEvent;
-      case EventType.opportunity: return AppColors.tagOpportunity;
-      case EventType.workshop: return AppColors.tagWorkshop;
-      case EventType.competition: return AppColors.tagCompetition;
-      case EventType.announcement: return const Color(0xFF3D2F00);
-    }
-  }
+  /// Soft, theme-adaptive tint derived from [typeColor] — a quiet pill fill
+  /// that reads well on both light and dark surfaces.
+  Color get typeBgColor => typeColor.withAlpha(28);
 
   String get typeLabel {
     switch (type) {
