@@ -269,34 +269,48 @@ class _ExploreEventCard extends StatelessWidget {
                   const SizedBox(height: 6),
                   Row(
                     children: [
-                      const Icon(
-                        BootstrapIcons.calendar,
-                        size: 12,
-                        color: AppColors.textMuted,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        _formatDate(event.date),
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: AppColors.textSecondary,
+                      Expanded(
+                        child: Row(
+                          children: [
+                            const Icon(
+                              BootstrapIcons.calendar,
+                              size: 12,
+                              color: AppColors.textMuted,
+                            ),
+                            const SizedBox(width: 4),
+                            Flexible(
+                              child: Text(
+                                _formatDate(event.date),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: AppColors.textSecondary,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            const Icon(
+                              BootstrapIcons.people,
+                              size: 12,
+                              color: AppColors.textMuted,
+                            ),
+                            const SizedBox(width: 4),
+                            Flexible(
+                              child: Text(
+                                '${event.goingCount} going',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: AppColors.textSecondary,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      const SizedBox(width: 12),
-                      const Icon(
-                        BootstrapIcons.people,
-                        size: 12,
-                        color: AppColors.textMuted,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        '${event.goingCount} going',
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: AppColors.textSecondary,
-                        ),
-                      ),
-                      const Spacer(),
+                      const SizedBox(width: 8),
                       RSVPButton(event: event),
                     ],
                   ),
